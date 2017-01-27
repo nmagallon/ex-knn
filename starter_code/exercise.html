@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script src="data.js">
+    </script>
+    <script src="exercise.js">
+    </script>
+    <title></title>
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+
+    function run(rooms, area, k){
+        exercise.measureDistances(rooms,area);
+        exercise.sortByDistance();
+        var guess = exercise.guessType(k);
+        graphData();
+        drawKCircle(rooms,area,guess.type,k);
+        console.log(guess);
+    }
+
+    </script> 
+    <script src="graph.js">
+    </script> 
+    <script>
+
+    function timer(){
+        var k = 3;
+        var rooms = Math.round( Math.random() * 9 );
+        var area =  250 + Math.round( Math.random() * 1450 );
+        console.log('rooms: ' + rooms + ', area: ' + area);
+        run(rooms,area,3);
+        setTimeout(timer, 5000);
+    }
+
+    window.onload = timer();
+
+    </script>
+  </body>
+</html>
